@@ -185,8 +185,16 @@ function dic-ya-w
     w3m "http://dic.yahoo.co.jp/dsearch?enc=UTF-8&p="`_space2plus $@`"&dtype=1"
 }
 
+## 環境依存設定の読み込み
 
-
+if [ -d $HOME/.zshrc.d ]; then
+    cd $HOME/.zshrc.d
+    for fp in *.zsh
+    do
+        source $fp
+    done
+    cd $HOME
+fi
 
 ## ここから下はここまでの設定を特定環境下で変更させる場合に記述する。
 
@@ -201,7 +209,7 @@ case "${TERM}" in
         ;;
 esac
 
+clear
+echo "[31m[[m`pwd`[31m][m"
+ls
 
-echo "[`pwd`]"
-ls --color
-echo ""

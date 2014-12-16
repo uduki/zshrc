@@ -188,12 +188,13 @@ function dic-ya-w
 ## 環境依存設定の読み込み
 
 if [ -d $HOME/.zshrc.d ]; then
+    CURRENT_DIR=$PWD
     cd $HOME/.zshrc.d
     for fp in *.zsh
     do
         source $fp
     done
-    cd $HOME
+    cd $CURRENT_DIR
 fi
 
 ## ここから下はここまでの設定を特定環境下で変更させる場合に記述する。
